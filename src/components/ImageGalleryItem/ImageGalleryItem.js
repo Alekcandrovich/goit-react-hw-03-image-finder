@@ -12,19 +12,18 @@ class ImageGalleryItem extends Component {
     const {
       webformatURL,
       tags,
-      onClick,
+      onImageClick,
       largeImageURL
     } = this.props;
 
     return (
       <li className={css.gallery_item}>
-        <a href={largeImageURL} onClick={onClick && (() => onClick(largeImageURL))}>
-          <img
-            className={css.gallery_item_image}
-            src={webformatURL}
-            alt={tags}
-          />
-        </a>
+        <img
+          className={css.gallery_item_image}
+          src={webformatURL}
+          alt={tags}
+          onClick={() => onImageClick(largeImageURL)}
+        />
       </li>
     );
   }
@@ -33,7 +32,7 @@ class ImageGalleryItem extends Component {
 ImageGalleryItem.propTypes = {
   webformatURL: PropTypes.string.isRequired,
   tags: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
+  onImageClick: PropTypes.func,
   largeImageURL: PropTypes.string,
 };
 
