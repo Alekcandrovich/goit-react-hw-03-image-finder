@@ -15,7 +15,7 @@ class CustomLoader extends Component {
     } = this.props;
 
     return (
-      <>
+      <div className="loader_center loader_overlay">
         <RotatingLines
           strokeColor={strokeColor}
           strokeWidth={strokeWidth}
@@ -23,7 +23,7 @@ class CustomLoader extends Component {
           width={width}
           visible={visible}
         />
-      </>
+      </div>
     );
   }
 }
@@ -38,9 +38,9 @@ CustomLoader.propTypes = {
 
 CustomLoader.defaultProps = {
   strokeColor: 'blue',
-  strokeWidth: 2,
-  animationDuration: 1000,
-  width: 50,
+  strokeWidth: 3,
+  animationDuration: 0.90,
+  width: 100,
   visible: true ,
 };
 

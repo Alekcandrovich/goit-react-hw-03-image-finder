@@ -8,9 +8,11 @@ class Button extends Component {
     const { onClick } = this.props;
 
 return (
-  <button type="button" className={css.load_more} onClick={onClick}>
-    Load more
-  </button>
+  <div className={css.btnContainer}>
+      <button type="button" className={css.load_more} onClick={onClick}>
+        Load more
+      </button>
+  </div>
 );
   }
 }

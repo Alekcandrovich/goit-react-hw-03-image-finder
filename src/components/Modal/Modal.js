@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import css from './modal.module.css';
 
 class Modal extends Component {
-  static propTypes = {
-    onCloseModal: PropTypes.func.isRequired,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]).isRequired,
-  };
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
@@ -39,16 +32,18 @@ class Modal extends Component {
     return (
       <div className={css.overlay} onClick={this.handleBackdropClick}>
         <div className={css.modal}>
-          <button
-            type="button"
-            className={css.closeButton}
-            onClick={this.props.onCloseModal}
-          ></button>
           {children}
         </div>
       </div>
     );
   }
 }
+
+Modal.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
 
 export default Modal;
